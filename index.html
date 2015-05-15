@@ -1,11 +1,18 @@
 <!doctype html>
-<html lang="en" ng-app>
+<html lang="en" ng-app="bankApp">
 <head>
 	<meta charset="utf-8">
 	<title>Start page</title>
-	<script src="angular/angular.js"></script>
+	<script src="js/angular/angular.js"></script>
+	<script src="js/angular/angular-route.js"></script>
+
+	<script src="js/app/app.js"></script>
+
+	<script src="js/app/controllers/overviewCtrl.js"></script>
 </head>
 <body>
+
+	<div ng-view></div>
 
 </body>
 </html>
