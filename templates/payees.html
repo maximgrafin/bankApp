@@ -1,0 +1,41 @@
+<div class="row">
+	<div class="grid_4" ng-form="payeeForm">
+
+		<fieldset>
+			<label for="payeeName">Name</label>
+			<input type="text" id="payeeName" ng-model="newPayee.name" placeholder="Name" ng-required="true" />
+		</fieldset>
+
+		<fieldset>
+			<label for="payeeBank">Bank</label>
+			<input type="text" id="payeeBank" ng-model="newPayee.bank" placeholder="Bank" ng-required="true" />
+		</fieldset>
+
+		<fieldset>
+			<label for="payeeIban">IBAN</label>
+			<input type="text" id="payeeIban" ng-model="newPayee.iban" placeholder="IBAN" ng-required="true" />
+		</fieldset>
+
+		<a href="" ng-click="createPayee()" class="btn small" ng-class="{'info': payeeForm.$valid}">Create payee</a>
+
+	</div>
+</div>
+
+<table>
+	<thead>
+	<tr>
+		<th scope="col">Name</th>
+		<th scope="col">Bank</th>
+		<th scope="col">IBAN</th>
+		<th scope="col"></th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr ng-repeat="payee in getPayees()" ng-class-odd="odd" ng-class-even="even">
+		<td>{{payee.name}}</td>
+		<td>{{payee.bank}}</td>
+		<td>{{payee.iban}}</td>
+		<td><a href="" ng-click="removePayee(payee)" class="btn small error">remove</a></td>
+	</tr>
+	</tbody>
+</table>
