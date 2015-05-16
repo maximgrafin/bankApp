@@ -1,7 +1,8 @@
 var bankApp = angular.module('bankApp', [
 	'ngRoute',
 	'bankControllers',
-	'bankServices'
+	'bankServices',
+	'bankDirectives'
 ]);
 
 bankApp.config(['$routeProvider',
@@ -26,3 +27,4 @@ bankApp.config(['$routeProvider',
 
 var bankControllers = angular.module('bankControllers', []);
 var bankServices = angular.module('bankServices', []);
+var bankDirectives = angular.module('bankDirectives', []);

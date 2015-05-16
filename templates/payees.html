@@ -1,25 +1,4 @@
-<div class="row">
-	<div class="grid_4" ng-form="payeeForm">
-
-		<fieldset>
-			<label for="payeeName">Name</label>
-			<input type="text" id="payeeName" ng-model="newPayee.name" placeholder="Name" ng-required="true" />
-		</fieldset>
-
-		<fieldset>
-			<label for="payeeBank">Bank</label>
-			<input type="text" id="payeeBank" ng-model="newPayee.bank" placeholder="Bank" ng-required="true" />
-		</fieldset>
-
-		<fieldset>
-			<label for="payeeIban">IBAN</label>
-			<input type="text" id="payeeIban" ng-model="newPayee.iban" placeholder="IBAN" ng-required="true" />
-		</fieldset>
-
-		<a href="" ng-click="createPayee()" class="btn small" ng-class="{'info': payeeForm.$valid}">Create payee</a>
-
-	</div>
-</div>
+<bank-create-payee></bank-create-payee>
 
 <table>
 	<thead>

@@ -1,9 +1,12 @@
-bankControllers.controller('SendPaymentCtrl', ['$scope', 'Storage', function ($scope, Storage) {
+bankControllers.controller('SendPaymentCtrl', ['$scope', 'Storage', 'UI', function ($scope, Storage, UI) {
 	$scope.newPayment = undefined;
 	$scope.defaultPayment = {
+		date: new Date(),
 		amount: undefined,
 		payee: undefined
 	};
+
+	$scope.createPayeeMode = false;
 
 	$scope.getPayees = function () {
 		return Storage.getPayees();
@@ -22,6 +25,7 @@ bankControllers.controller('SendPaymentCtrl', ['$scope', 'Storage', function ($s
 			return;
 
 		Storage.sendPayment($scope.newPayment);
+		UI.showMessage("Payment sent");
 		$scope.reset();
 	};
 
