@@ -6,7 +6,8 @@
 		<hr class="bs-docs-separator"/>
 
 		<h4>Payees:</h4>
-		<table class="table table-striped">
+		<div ng-hide="getPayees().length > 0">No payees yet</div>
+		<table class="table table-striped" ng-show="getPayees().length > 0">
 			<thead>
 			<tr>
 				<th scope="col">Name</th>
