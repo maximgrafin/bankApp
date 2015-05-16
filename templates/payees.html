@@ -1,20 +1,28 @@
-<bank-create-payee></bank-create-payee>
+<div class="row">
+	<div class="span6">
 
-<table>
-	<thead>
-	<tr>
-		<th scope="col">Name</th>
-		<th scope="col">Bank</th>
-		<th scope="col">IBAN</th>
-		<th scope="col"></th>
-	</tr>
-	</thead>
-	<tbody>
-	<tr ng-repeat="payee in getPayees()" ng-class-odd="odd" ng-class-even="even">
-		<td>{{payee.name}}</td>
-		<td>{{payee.bank}}</td>
-		<td>{{payee.iban}}</td>
-		<td><a href="" ng-click="removePayee(payee)" class="btn small error">remove</a></td>
-	</tr>
-	</tbody>
-</table>
+		<bank-create-payee></bank-create-payee>
+
+		<hr class="bs-docs-separator"/>
+
+		<h4>Payees:</h4>
+		<table class="table table-striped">
+			<thead>
+			<tr>
+				<th scope="col">Name</th>
+				<th scope="col">Bank</th>
+				<th scope="col">IBAN</th>
+				<th scope="col"></th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr ng-repeat="payee in getPayees()" ng-class-odd="odd" ng-class-even="even">
+				<td>{{payee.name}}</td>
+				<td>{{payee.bank}}</td>
+				<td>{{payee.iban}}</td>
+				<td><a href="" ng-click="removePayee(payee)"><i class="icon-trash"></i></a></td>
+			</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

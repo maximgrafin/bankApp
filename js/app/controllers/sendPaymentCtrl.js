@@ -6,34 +6,27 @@ bankControllers.controller('SendPaymentCtrl', ['$scope', 'Storage', 'UI', functi
 		payee: undefined
 	};
 
-	$scope.createPayeeMode = false;
+	$scope.getBalance = function(){
+		return Storage.getBalance();
+	};
 
 	$scope.getPayees = function () {
 		return Storage.getPayees();
-	};
-
-	$scope.getPayments = function () {
-		return Storage.getPayments();
-	};
-
-	$scope.isAmountValid = function () {
-		return $scope.paymentAmount > 0;
 	};
 
 	$scope.sendPayment = function () {
 		if (!$scope.paymentForm.$valid)
 			return;
 
-		Storage.sendPayment($scope.newPayment);
-		UI.showMessage("Payment sent");
-		$scope.reset();
+		if (Storage.sendPayment($scope.newPayment)) {
+			UI.showMessage("Payment sent", UI.types.success);
+			$scope.reset();
+		}else{
+			UI.showMessage("Failed to create payment", UI.types.error);
+		}
 	};
 
-	$scope.getBalance = function () {
-		return Storage.getBalance();
-	};
-
-	$scope.reset = function(){
+	$scope.reset = function () {
 		$scope.newPayment = angular.copy($scope.defaultPayment);
 	};
 

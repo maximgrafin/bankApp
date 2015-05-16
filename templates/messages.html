@@ -1,0 +1,8 @@
+<div class="row">
+
+</div>
+
+<div ng-repeat="message in getMessages()" class="alert {{'alert-'+message.type}}">
+	{{message.text}}
+	<a href="" ng-click="removeMessage(message.id)" class="close" data-dismiss="alert">&times;</a>
+</div>

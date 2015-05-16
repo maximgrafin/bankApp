@@ -87,11 +87,17 @@ bankServices.factory('Storage', [function () {
 	};
 
 	Storage.sendPayment = function (payment) {
+		var newBalance = Storage.getBalance() - payment.amount; //TODO ms: validate
+
+		if (newBalance < 0)
+			return false;
+
 		Storage._payments.push(payment);
 		Storage._savePayments();
 
-		var newBalance = Storage.getBalance() - payment.amount; //TODO ms: validate
 		Storage._setBalance(newBalance);
+
+		return true;
 	};
 
 	Storage.getPayments = function () {

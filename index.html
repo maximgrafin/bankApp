@@ -2,6 +2,8 @@
 <html lang="en" ng-app="bankApp">
 <head>
 	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 	<title>Bank application</title>
 
 	<script src="js/angular/angular.js"></script>
@@ -19,29 +21,48 @@
 	<script src="js/app/directives/bankCreatePayeeDirective.js"></script>
 	<script src="js/app/directives/bankMessagesDirective.js"></script>
 
-	<link rel="stylesheet" href="amazium/css/base.css">
-	<link rel="stylesheet" href="amazium/css/amazium.css">
-	<link rel="stylesheet" href="amazium/css/form.css">
-	<link rel="stylesheet" href="amazium/css/layout.css">
+	<!--<link rel="stylesheet" href="amazium/css/base.css">-->
+	<!--<link rel="stylesheet" href="amazium/css/amazium.css">-->
+	<!--<link rel="stylesheet" href="amazium/css/form.css">-->
+	<!--<link rel="stylesheet" href="amazium/css/layout.css">-->
+
+	<!-- Bootstrap -->
+	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
 
 	<link rel="stylesheet" href="css/main.css">
 
 </head>
 <body>
 
-<bank-messages-directive></bank-messages-directive>
+<script src="http://code.jquery.com/jquery.js"></script>
+<script src="bootstrap/js/bootstrap.min.js"></script>
 
-<div class="grid_12">
-	<h1>Bank application</h1>
-</div>
-<div class="grid_12">
-	<a href="#/home">Home</a>
-	<a href="#/overview">Overview</a>
-	<a href="#/sendPayment">sendPayment</a>
-	<a href="#/payees">Payees</a>
+<div class="navbar">
+	<div class="navbar-inner">
+		<div class="container">
+			<a class="brand" href="#/">Bank</a>
+
+			<div class="nav-collapse collapse">
+				<ul class="nav">
+					<li><a href="#/overview">Overview</a></li>
+					<li><a href="#/sendPayment">Send payment</a></li>
+					<li><a href="#/payees">Payees</a></li>
+				</ul>
+			</div>
+			<!--/.nav-collapse -->
+		</div>
+	</div>
 </div>
 
-	<div class="grid_12" ng-view></div>
+<div class="container">
+
+	<bank-messages-directive></bank-messages-directive>
+
+	<div class="row">
+		<div class="span6" ng-view></div>
+	</div>
+</div>
+</div>
 
 </body>
 </html>

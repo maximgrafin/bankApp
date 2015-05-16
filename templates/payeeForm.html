@@ -1,0 +1,39 @@
+<h4>Create payee</h4>
+
+<div ng-form="payeeForm" class="form-horizontal">
+
+	<div class="control-group">
+		<label class="control-label" for="payeeName">Name</label>
+
+		<div class="controls">
+			<input type="text" id="payeeName" ng-model="newPayee.name" placeholder="Name"
+			       ng-required="true"/>
+		</div>
+	</div>
+
+	<div class="control-group">
+		<label class="control-label" for="payeeBank">Bank</label>
+
+		<div class="controls">
+			<input type="text" id="payeeBank" ng-model="newPayee.bank" placeholder="Bank"
+			       ng-required="true"/>
+		</div>
+	</div>
+
+	<div class="control-group">
+		<label class="control-label" for="payeeIban">IBAN</label>
+
+		<div class="controls">
+			<input type="text" id="payeeIban" ng-model="newPayee.iban" placeholder="IBAN" ng-minlength="5" ng-required="true"/>
+		</div>
+	</div>
+
+	<div class="control-group">
+		<div class="controls">
+			<a href="" ng-click="createPayee()" class="btn btn-primary" ng-class="{'disabled': !payeeForm.$valid}">Create
+				payee</a>
+		</div>
+	</div>
+
+
+</div>

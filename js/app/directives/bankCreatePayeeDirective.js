@@ -1,4 +1,4 @@
-bankDirectives.directive('bankCreatePayee', ['Storage', function (Storage) {
+bankDirectives.directive('bankCreatePayee', ['Storage', 'UI', function (Storage, UI) {
 	var PayeeDirective = {
 		restrict: 'E',
 		templateUrl: 'templates/payeeForm.html',
@@ -15,6 +15,7 @@ bankDirectives.directive('bankCreatePayee', ['Storage', function (Storage) {
 					return;
 
 				Storage.createPayee($scope.newPayee);
+				UI.showMessage("Payee created", UI.types.success);
 				$scope.reset();
 			};
 
