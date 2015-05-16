@@ -3,7 +3,7 @@ bankServices.factory('Storage', [function () {
 	Storage.localStorage = window.localStorage;
 
 	Storage._balanceKey = "bankApp_balance";
-	Storage._defaultBalance = 100;
+	Storage._defaultBalance = 10000;
 
 	Storage._payeesKey = "bankApp_payees";
 	Storage._payees = [];
