@@ -4,7 +4,7 @@ bankServices.factory('UI', [function () {
 
 	UI.types = {
 		success: "success",
-		error: "error"
+		error: "danger"
 	};
 
 	UI.showMessage = function (text, type) {

@@ -1,29 +1,39 @@
 <div class="row">
-	<div class="span6">
+	<div class="col-md-12">
 
 		<bank-create-payee></bank-create-payee>
 
-		<hr class="bs-docs-separator"/>
+		<hr/>
 
-		<h4>Payees:</h4>
-		<div ng-hide="getPayees().length > 0">No payees yet</div>
-		<table class="table table-striped" ng-show="getPayees().length > 0">
-			<thead>
-			<tr>
-				<th scope="col">Name</th>
-				<th scope="col">Bank</th>
-				<th scope="col">IBAN</th>
-				<th scope="col"></th>
-			</tr>
-			</thead>
-			<tbody>
-			<tr ng-repeat="payee in getPayees()" ng-class-odd="odd" ng-class-even="even">
-				<td>{{payee.name}}</td>
-				<td>{{payee.bank}}</td>
-				<td>{{payee.iban}}</td>
-				<td><a href="" ng-click="removePayee(payee)"><i class="icon-trash"></i></a></td>
-			</tr>
-			</tbody>
-		</table>
+		<h2>Payees:</h2>
+
+		<p class="text-warning" ng-hide="getPayees().length > 0">No payees yet</p>
+
+		<div class="table-responsive">
+			<table class="table table-striped" ng-show="getPayees().length > 0">
+				<thead>
+				<tr>
+					<th scope="col">Name</th>
+					<th scope="col">Bank</th>
+					<th scope="col">IBAN</th>
+					<th scope="col"></th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr ng-repeat="payee in getPayees()" ng-class-odd="odd" ng-class-even="even">
+					<td>{{payee.name}}</td>
+					<td>{{payee.bank}}</td>
+					<td>{{payee.iban}}</td>
+					<td>
+						<a href="" title="Send money (not implemented)"><span
+								class="glyphicon glyphicon-share-alt" aria-hidden="true"></span></a>
+						&nbsp;
+						<a href="" ng-click="removePayee(payee)"><span class="glyphicon glyphicon-remove"
+						                                               aria-hidden="true"></span></a>
+					</td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
 	</div>
 </div>

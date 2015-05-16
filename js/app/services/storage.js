@@ -17,7 +17,22 @@ bankServices.factory('Storage', [function () {
 		}
 
 		if (Storage.localStorage.getItem(Storage._payeesKey) === null) {
-			Storage._payees = [];
+			Storage._payees = [{
+				id: 0,
+				name: "Parents",
+				bank: "Bank of America",
+				iban: "US1234567890"
+			}, {
+				id: 1,
+				name: "School",
+				bank: "Bank of America",
+				iban: "US0987654321"
+			}, {
+				id: 2,
+				name: "Flat",
+				bank: "Sparkasse",
+				iban: "DE12354345654"
+			}];
 			Storage._savePayees();
 		} else {
 			Storage._loadPayees();
@@ -64,9 +79,6 @@ bankServices.factory('Storage', [function () {
 	};
 
 	Storage.removePayee = function (payee) {
-		if (!window.confirm("Are you sure wnat to delete payee?"))
-			return;
-
 		for (var i = Storage._payees.length - 1; i >= 0; i--) {
 			if (Storage._payees[i].id == payee.id)
 				Storage._payees.splice(i, 1);
@@ -83,7 +95,7 @@ bankServices.factory('Storage', [function () {
 	};
 
 	Storage.getBalance = function () {
-		return Storage.localStorage.getItem(Storage._balanceKey);
+		return Number(Storage.localStorage.getItem(Storage._balanceKey));
 	};
 
 	Storage.sendPayment = function (payment) {

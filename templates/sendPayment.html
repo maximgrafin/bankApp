@@ -1,51 +1,87 @@
-<h4>Create payment</h4>
+<h2>Create payment</h2>
 
-<div class="form-horizontal" ng-form="paymentForm">
+<div ng-form="paymentForm" class="form form-horizontal">
 
-	<div class="control-group">
-		<label class="control-label" for="paymentAmount">
+	<div class="form-group">
+		<label class="control-label col-sm-2" for="paymentAmount">
 			Amount (up to <strong>{{getBalance()|currency}}</strong>)</label>
 
-		<div class="controls">
-			<div class="input-prepend">
-				<span class="add-on">$</span>
-				<input class="input-small" type="number" id="paymentAmount" ng-model="newPayment.amount" placeholder="Amount"
+		<div class="col-sm-10 col-md-4 ">
+			<div class="input-group">
+				<span class="input-group-addon">$</span>
+				<input class="form-control" type="number" id="paymentAmount" ng-model="newPayment.amount"
+				       placeholder="Amount"
 				       ng-min="1" ng-required="true"/>
 			</div>
 		</div>
 	</div>
 
-	<div class="control-group">
-		<label class="control-label" for="paymentDate">Date</label>
+	<div class="form-group">
+		<label class="control-label col-sm-2" for="paymentDate">Date</label>
 
-		<div class="controls">
-			<input type="date" id="paymentDate" ng-model="newPayment.date" placeholder="Date"
+		<div class="col-sm-10 col-md-4">
+			<input class="form-control" type="date" id="paymentDate" ng-model="newPayment.date"
+			       placeholder="Date"
 			       ng-required="true"/>
 		</div>
 	</div>
 
-	<div class="control-group">
-		<label class="control-label" for="paymentPayee">Payee</label>
+	<div class="form-group">
+		<label class="control-label col-sm-2" for="paymentPayee">Payee</label>
 
-		<div class="controls">
-	    <span class="select" ng-show="getPayees().length > 0">
-	      <select id="paymentPayee" name="dropdown" ng-model="newPayment.payeeId"
-	              ng-required="true"/>
-          <option ng-repeat="payee in getPayees()" value="{{payee.id}}">{{payee.name}}</option>
-		    </select>
-      </span>
-		</div>
-
-		<div class="controls">
-			<a href="#/payees">Create payee</a>
-		</div>
+		<div class="col-sm-10 col-md-4">
+			<select class="form-control"
+			        id="paymentPayee"
+			        ng-model="newPayment.payeeId"
+			        ng-show="getPayees().length > 0"
+			        ng-required="true"/>
+			<option ng-repeat="payee in getPayees()" value="{{payee.id}}">{{payee.name}}</option>
+			</select>
+			<a href="#/payees">Create payee</a></div>
 	</div>
 
-	<div class="control-group">
-		<div class="controls">
+	<div class="form-group">
+		<div class="col-sm-offset-2 col-sm-10 col-md-4">
 			<a href="" ng-click="sendPayment()" class="btn btn-primary"
 			   ng-class="{'disabled': !paymentForm.$valid}">Make payment</a>
 		</div>
 	</div>
-
 </div>
+
+<hr/>
+
+<h2>Recent payments (not implemented):</h2>
+
+<div class="table-responsive">
+	<table class="table table-striped" ng-show="getPayees().length > 0">
+		<thead>
+		<tr>
+			<th scope="col">Payee</th>
+			<th scope="col">Amount</th>
+			<th scope="col">Date</th>
+			<th scope="col"></th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr class="odd">
+			<td><a href="" title="not implemented">Parents</a></td>
+			<td>$200</td>
+			<td>22.03.2015</td>
+			<td>
+				<a href="" title="Repeat (not implemented)"><span
+						class="glyphicon glyphicon-repeat" aria-hidden="true"></span></a>
+			</td>
+		</tr>
+		<tr class="even">
+			<td><a href="" title="not implemented">School</a></td>
+			<td>$1200</td>
+			<td>15.05.2015</td>
+			<td>
+				<a href="" title="Repeat (not implemented)"><span
+						class="glyphicon glyphicon-repeat" aria-hidden="true"></span></a>
+			</td>
+		</tr>
+		</tbody>
+	</table>
+</div>
+
